@@ -5,8 +5,14 @@ using System.Threading.Tasks;
 
 namespace Core.Client
 {
+    /// <summary>
+    /// Standalone'owy skrypt pomagający w utrzymaniu capa 64 graczy, będący zamiennikiem FiveMowskiego w Lua.
+    /// </summary>
     public class HardPlayerCap : BaseScript
     {
+        /// <summary>
+        /// Konstruktor, wywoływany przy zinstancjonowaniu skryptu.
+        /// </summary>
         public HardPlayerCap()
         {
             BaseScript.Delay(1000);
@@ -19,6 +25,12 @@ namespace Core.Client
             EventHandlers[trigger] += callback;
         }
 
+        /// <summary>
+        /// Sprawdza, czy gracz został poprawnie zaktywowany sieciowo i dołączony do serwera.
+        /// </summary>
+        /// <returns>
+        /// Wywołane zadanie (Task).
+        /// </returns>
         private async Task PlayerActivatedCheck()
         {
             if (NativeWrappers.NetworkIsSessionStarted())
