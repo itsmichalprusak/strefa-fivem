@@ -22,6 +22,7 @@ namespace Core.Client
         public PlayerSpawnManager()
         {
             Tick += SpawnCheck;
+            Debug.WriteLine("[Core] SpawnManager wystartował.");
             Exports.Add("hasSpawned", new Func<bool>(() => _hasSpawned));
         }
 
