@@ -9,9 +9,9 @@ takiej, jak opisałem to na przykładzie.
 
 #### Wymagane biblioteki 
 Musisz mieć zainstalowane:
-- ![.NET Framework v4.5.2](https://www.microsoft.com/pl-pl/download/details.aspx?id=42642) 
-- ![Klient FiveM](https://fivem.net) 
-- ![Serwer FIVEM](https://docs.fivem.net/server-manual/setting-up-a-server/) (wystarczy wypakować pliki) 
+- [.NET Framework v4.5.2](https://www.microsoft.com/pl-pl/download/details.aspx?id=42642) 
+- [Klient FiveM](https://fivem.net) 
+- [Serwer FIVEM](https://docs.fivem.net/server-manual/setting-up-a-server/) (wystarczy wypakować pliki) 
 
 W przyszłości biblioteki te znajdą się w folderze lib rozwiązania.
 
