@@ -17,18 +17,28 @@ namespace Animations
 
         private async Task ButtonCheck()
         {
-            if (OnKeyUp(73))
+            if (IsControlJustReleased(0, 73))
             {
-                ClearPlayerPedTasks(false);
+                ClearPedTasks(PlayerPedId());
             }
 
-            if (OnKeyUp(289))
+            if (IsControlJustReleased(0, 289))
             {
                 PlayAnimationOnPlayerPed("missminuteman_1ig_2", "handsup_enter", 50);
             }
-            else if (OnKeyUp(47))
+            else if (IsControlJustReleased(0, 47))
             {
                 PlayAnimationOnPlayerPed("amb@world_human_hang_out_street@female_arms_crossed@enter", "enter", 50);
+            }
+
+            if (IsControlJustReleased(0, 29))
+            {
+                RequestAnimDict("anim@mp_point");
+                while (!HasAnimDictLoaded("anim@mp_point")) await Delay(1);
+                SetPedCurrentWeaponVisible(PlayerPedId(), false, true, true, true);
+                SetPedConfigFlag(PlayerPedId(), 36, true);
+                TaskMoveNetwork(PlayerPedId(), "task_mp_pointing", 0.5f, false, "anim@mp_point", 24);
+                RemoveAnimDict("anim@mp_point");
             }
 
             await Task.FromResult(0);
@@ -36,40 +46,16 @@ namespace Animations
 
         private async void PlayAnimationOnPlayerPed(string lib, string anim, int flag)
         {
-            if (!IsMyPedPlayingAnimation(lib, anim))
+            if (!IsEntityPlayingAnim(PlayerPedId(), lib, anim, 3))
             {
-                Function.Call(Hash.REQUEST_ANIM_DICT, lib);
-                while (!Function.Call<bool>(Hash.HAS_ANIM_DICT_LOADED, lib)) await Delay(1);
-                Function.Call(Hash.TASK_PLAY_ANIM, Game.PlayerPed, lib, anim, 1.0, 1.0, -1, flag, 0, 0, 0, 0);
+                RequestAnimDict(lib);
+                while (!HasAnimDictLoaded(lib)) await Delay(1);
+                TaskPlayAnim(PlayerPedId(), lib, anim, 1.0f, 1.0f, -1, flag, 0f, false, false, false);
             }
             else
             {
-                ClearPlayerPedTasks(false);
+                ClearPedTasks(PlayerPedId());
             }
-        }
-
-        private void ClearPlayerPedTasks(bool immediately)
-        {
-            if (immediately)
-                Function.Call(Hash.CLEAR_PED_TASKS_IMMEDIATELY, Game.PlayerPed);
-            else
-                Function.Call(Hash.CLEAR_PED_TASKS, Game.PlayerPed);
-        }
-
-        private bool IsMyPedPlayingAnimation(string lib, string anim)
-        {
-            if (Function.Call<bool>(Hash.IS_ENTITY_PLAYING_ANIM, Game.PlayerPed, lib, anim, 3))
-                return true;
-            else
-                return false;
-        }
-
-        private bool OnKeyUp(int key)
-        {
-            if (IsControlJustReleased(0, key))
-                return true;
-            else
-                return false;
         }
     }
     
