@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Client", "Core.Client\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiCheat.Client", "AntiCheat.Client\AntiCheat.Client.csproj", "{89380977-5B55-4360-94B9-25238AB39F2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{89380977-5B55-4360-94B9-25238AB39F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89380977-5B55-4360-94B9-25238AB39F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89380977-5B55-4360-94B9-25238AB39F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
