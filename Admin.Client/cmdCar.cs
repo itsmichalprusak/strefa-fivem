@@ -54,14 +54,7 @@ namespace Admin.Client
 
             RegisterCommand("delcar", new Action<int, List<object>, string>(async (source, args, raw) =>
             {
-                //var model = "adder";
-                //if (args.Count > 0)
-                //{
-                //    model = args[0].ToString();
-                //}
                 
-                // Sprawdzanie czy gracz jest w pojeździe
-                //var hash = (uint) GetHashKey(model);
                 var vehicle = Game.PlayerPed.CurrentVehicle;
                 if (vehicle == null)
                 {
@@ -72,15 +65,14 @@ namespace Admin.Client
                     });
                     return;
                 }
-                // Pobieranie modelu pojazdu
-                var vehdel = vehicle.Model;
+                
                 // Usuwanie pojazdu
                 vehicle.Delete();
                 // Wiadomość zwrotna do gracza
                 TriggerEvent("chat:addMessage", new 
                 {
                     color = new[] {255, 0, 0},
-                    args = new[] {"AdmCmd", $"Usunąłeś pojazd o modelu: {vehdel}!"}
+                    args = new[] {"AdmCmd", "Pojazd został usunięty!"}
                 });
             }), false);
         }
