@@ -33,7 +33,7 @@ namespace Admin.Client
                     TriggerEvent("chat:addMessage", new 
                     {
                         color = new[] { 255, 0, 0 },
-                        args = new[] { "AdmCmd:", $"Błąd! Podany model: {model} nie istnieje!" }
+                        args = new[] { "AdmCmd", $"Błąd! Podany model: {model} nie istnieje!" }
                     });
                     return;
                 }
@@ -48,7 +48,38 @@ namespace Admin.Client
                 TriggerEvent("chat:addMessage", new 
                 {
                     color = new[] {255, 0, 0},
-                    args = new[] {"AdmCmd:", $"Stworzyłeś nowy pojazd {model}!"}
+                    args = new[] {"AdmCmd", $"Stworzyłeś pojazd o modelu: {model}!"}
+                });
+            }), false);
+
+            RegisterCommand("delcar", new Action<int, List<object>, string>(async (source, args, raw) =>
+            {
+                var model = "adder";
+                if (args.Count > 0)
+                {
+                    model = args[0].ToString();
+                }
+                
+                // Sprawdzanie czy gracz jest w pojeździe
+                var hash = (uint) GetHashKey(model);
+                var vehicle = Game.PlayerPed.CurrentVehicle;
+                if (vehicle == null)
+                {
+                    TriggerEvent("chat:addMessage", new 
+                    {
+                        color = new[] { 255, 0, 0 },
+                        args = new[] { "AdmCmd", $"Nie jesteś w pojeździe!" }
+                    });
+                    return;
+                }
+                
+                // Usuwanie pojazdu
+                vehicle.Delete();
+                // Wiadomość zwrotna do gracza
+                TriggerEvent("chat:addMessage", new 
+                {
+                    color = new[] {255, 0, 0},
+                    args = new[] {"AdmCmd", $"Usunąłeś pojazd modelu: {model}!"}
                 });
             }), false);
         }
