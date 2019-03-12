@@ -7,7 +7,7 @@
         <ProjectGuid>{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Admin</RootNamespace>
+        <RootNamespace>Admin.Client</RootNamespace>
         <AssemblyName>Admin.Client</AssemblyName>
         <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
@@ -41,7 +41,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Class1.cs" />
+        <Compile Include="cmdCar.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
