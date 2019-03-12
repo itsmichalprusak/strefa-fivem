@@ -48,7 +48,7 @@ namespace Admin.Client
                 TriggerEvent("chat:addMessage", new 
                 {
                     color = new[] {255, 0, 0},
-                    args = new[] {"AdmCmd:", $"Stworzyłeś nowy pojazd ^*{model}!"}
+                    args = new[] {"AdmCmd:", $"Stworzyłeś nowy pojazd {model}!"}
                 });
             }), false);
         }
