@@ -37,8 +37,7 @@ namespace Stasiek
 
         private void LoadJsonCommands()
         {
-            string addons = LoadResourceFile(GetCurrentResourceName(), "config.json") ?? "{}";
-            EmoteCommandList = JsonConvert.DeserializeObject<List<EmoteCommand>>(addons);
+            EmoteCommandList = JsonConvert.DeserializeObject<List<EmoteCommand>>(LoadResourceFile(GetCurrentResourceName(), "AnimationManagerConfig.json") ?? "{}");
         }
   
         private async Task Update()
