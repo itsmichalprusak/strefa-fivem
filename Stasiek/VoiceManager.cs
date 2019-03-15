@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CitizenFX.Core;
-using CitizenFX.Core.Native;
 using static CitizenFX.Core.Native.API;
 
 
@@ -14,17 +13,26 @@ namespace Stasiek
         float[] voice = new float[] { 2.0f, 12.0f, 40.0f };
         string[] voiceLabel = new string[] { "Szept", "Normalny", "Krzyk"};
         int v = 0;
-        bool debug = true;
+        bool debug = false;
 
         public VoiceManager()
         {
             Tick += ChangeVoicePromixy;
-            Tick += ChangeVoicePromixy;
+            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+        }
+
+        private void OnClientResourceStart(string resourceName)
+        {
+            if (GetCurrentResourceName() != resourceName) return;
+            RegisterCommand("voicemanager_debug", new Action<int, List<object>, string>((source, args, raw) => {
+                debug = !debug;
+                Debug.Write("Stasiek.VoiceManager => Debugger " + debug);
+            }), false);
         }
 
         private async Task ChangeVoicePromixy()
         {
-            //Zmiana dźwięku F5
+            //Zmiana dźwięku [F5]
             if (IsControlJustReleased(0, 166))
             {
                 if (v == voice.Length - 1)
@@ -33,7 +41,7 @@ namespace Stasiek
                 }
                 v++;
                 NetworkSetTalkerProximity(voice[v]);
-                Debug.Write("Stasiek.VoiceManager => Zmieniono zasieg Voice'a na " + voiceLabel[v]);
+                Debug.Write("Stasiek.VoiceManager => Zmieniono zasieg Voice'a z " + NetworkGetTalkerProximity() + " na " + voiceLabel[v]);
             }
             //Debuger pokazuje Sphere który oznajmia zasięg dźwięku
             if (debug)
@@ -41,8 +49,6 @@ namespace Stasiek
                 Vector3 coords = GetEntityCoords(PlayerPedId(), true);
                 DisplayDebug(coords.X, coords.Y, coords.Z, voice[v]);
             }
-            //Komenda na wyłączenie debuggera
-            RegisterCommand("voicemanager_debug", new Action<int, List<object>, string>(async (source, args, raw) =>{ debug = !debug; }), false);
 
             await Task.FromResult(0);
         }
