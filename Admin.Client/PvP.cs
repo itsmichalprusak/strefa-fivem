@@ -9,8 +9,7 @@ namespace Admin.Client
         public PvP()
         {
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
-        }
-
+        } 
         private void OnClientResourceStart(string resourceName)
         {
             if (GetCurrentResourceName() != resourceName) return;
