@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using CitizenFX.Core;
+using CitizenFX.Core.Native;
 using static CitizenFX.Core.Native.API;
 
 namespace Admin.Client
@@ -54,7 +56,7 @@ namespace Admin.Client
 
             RegisterCommand("delcar", new Action<int, List<object>, string>(async (source, args, raw) =>
             {
-                
+                // Sprawdzanie czy gracz jest w pojeździe
                 var vehicle = Game.PlayerPed.CurrentVehicle;
                 if (vehicle == null)
                 {
