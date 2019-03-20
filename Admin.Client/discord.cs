@@ -23,7 +23,8 @@ using static CitizenFX.Core.Native.API;
      
              private async Task timer()
              {
-                 if (GetGameTimer() - lastUpdateTime > 8000)
+                 // Timer aktualizuje dane co 30sekund
+                 if (GetGameTimer() - lastUpdateTime > 30000)
                  {
                      // Pobieranie ID Gracza
                      var id = GetPlayerServerId(PlayerId());
@@ -31,7 +32,6 @@ using static CitizenFX.Core.Native.API;
                      var players = NetworkGetNumConnectedPlayers();
                      // Pobieranie Nicku gracza (Później będzie zmienione na imię i nazwisko ic postaci)
                      var playername = GetPlayerName(PlayerId());
-                     Debug.Write($"Online: {players}");
                      // Tytuł, w co dany gracz gra.
                      Function.Call(Hash.ADD_TEXT_ENTRY, "FE_THDR_GTAO", "StrefaRP.pl");
                      // AppID Discorda, aktualne ID jest podpięte pod bota StrefaRP
