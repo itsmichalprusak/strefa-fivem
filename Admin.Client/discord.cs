@@ -18,7 +18,6 @@ namespace Admin.Client
             // Pobieranie ID Gracza
             var id = Game.Player.ServerId;
             // Pobieranie Wszystkich Graczy na serwerze
-            //var players = GetNumberOfPlayers();
             var players = NetworkGetNumConnectedPlayers();
             // Pobieranie Nicku gracza (Później będzie zmienione na imię i nazwisko ic postaci)
             var playername = Game.Player.Name;
