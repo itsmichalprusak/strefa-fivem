@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiCheat.Client", "AntiChe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Client", "Admin.Client\Admin.Client.csproj", "{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord.Client", "Discord.Client\Discord.Client.csproj", "{54B4B85B-5A9C-4772-9E45-A2B15C42AA52}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadingScreen", "LoadingScreen\LoadingScreen.csproj", "{C424427C-D83F-4769-8360-10514B86D3F2}"
 EndProject
 Global
@@ -28,10 +26,6 @@ Global
 		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20088EF2-A478-4BE2-9AA9-938C0C42FC7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54B4B85B-5A9C-4772-9E45-A2B15C42AA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54B4B85B-5A9C-4772-9E45-A2B15C42AA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54B4B85B-5A9C-4772-9E45-A2B15C42AA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54B4B85B-5A9C-4772-9E45-A2B15C42AA52}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C424427C-D83F-4769-8360-10514B86D3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C424427C-D83F-4769-8360-10514B86D3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C424427C-D83F-4769-8360-10514B86D3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
