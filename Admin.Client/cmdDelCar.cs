@@ -39,7 +39,7 @@ namespace Admin.Client
                     color = new[] {255, 0, 0},
                     args = new[] {"AdmCmd", "Pojazd został usunięty!"}
                 });
-                await Task.Delay(1000);
+                await Delay(1000);
             }), false);
         }
     }

@@ -31,6 +31,7 @@ namespace Discord.Client
                 var id = GetPlayerServerId(PlayerId());
                 // Pobieranie Wszystkich Graczy na serwerze
                 var players = NetworkGetNumConnectedPlayers();
+                Debug.Write($"Online: {players}");
                 // Pobieranie Nicku gracza (Później będzie zmienione na imię i nazwisko ic postaci)
                 var playername = GetPlayerName(PlayerId());
                 // Tytuł, w co dany gracz gra.
@@ -49,6 +50,7 @@ namespace Discord.Client
                 SetRichPresence($"ID: {id} - {players}/32 online");
                 _lastUpdateTime = GetGameTimer();
             }
+            await Delay(1000);
         }
     }
 }

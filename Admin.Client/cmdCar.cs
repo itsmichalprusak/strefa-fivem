@@ -51,7 +51,7 @@ namespace Admin.Client
                     color = new[] {255, 0, 0},
                     args = new[] {"AdmCmd", $"Stworzyłeś pojazd o modelu: {model}!"}
                 });
-                await Task.Delay(1000);
+                await Delay(1000);
             }), false);
         }
     }
