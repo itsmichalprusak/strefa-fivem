@@ -6,11 +6,11 @@ using static CitizenFX.Core.Native.API;
 
 namespace Discord.Client
 {
-    public class discord : BaseScript
+    public class DiscordRPC : BaseScript
     {
         private static float _lastUpdateTime;
 
-        public discord()
+        public DiscordRPC()
         {
             _lastUpdateTime = GetGameTimer();
             Tick += timer;

@@ -6,9 +6,9 @@ using static CitizenFX.Core.Native.API;
 
 namespace Admin.Client
 {
-    public class cmdDelCar : BaseScript
+    public class CmdDelCar : BaseScript
     {
-        public cmdDelCar()
+        public CmdDelCar()
         {
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
         }

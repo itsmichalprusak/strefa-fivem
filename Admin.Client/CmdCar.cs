@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
 
 namespace Admin.Client
 {
-    public class cmdCar : BaseScript
+    public class CmdCar : BaseScript
     {
-        public cmdCar()
+        public CmdCar()
         {
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
         }
