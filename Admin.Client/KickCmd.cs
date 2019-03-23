@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using static CitizenFX.Core.Native.API;
@@ -22,7 +23,13 @@ namespace Admin.Client
 
                 if (Int32.TryParse(args[0].ToString(), out id))
                 {
-                    var online = API.NetworkIsPlayerActive(id);
+                    var online = false;
+
+                    for (var i = 0; i < Players.Count(); i++)
+                    {
+                        if (Players.ToList()[i].ServerId == id)
+                            online = true;
+                    }
         
                     if (!online)
                     {
@@ -37,11 +44,7 @@ namespace Admin.Client
                     {
                         Debug.WriteLine($"Player: [ID:{id}] is online(?)");
                         TriggerServerEvent("srp_admin:kick");
-                        TriggerEvent("chatMessage", new 
-                        {
-                            color = new[] { 255, 0, 0 },
-                            args = new[] { "AdmCmd", $"Gracz o [ID:{id}] wyleciał z serwera!" }
-                        });
+                        TriggerEvent("chatMessage", $"Gracz o [ID:{id}] wyleciał z serwera!");
                     }
                 }
             }), false);
