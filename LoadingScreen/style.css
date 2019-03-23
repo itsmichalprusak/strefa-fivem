@@ -12,13 +12,21 @@ body
 
 }
 
-@font-face {
+@font-face 
+{
     font-family: 'Google Sans';
     src: url(GoogleSans-Regular.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face 
+{
+    font-family: 'Roboto Mono';
+    src: url(RobotoMono-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 #background
 {
@@ -55,6 +63,7 @@ body
 
 .log
 {
+    font-family: "Roboto Mono", sans-serif;
     color: rgba(255, 255, 255, 0.46);
     position: absolute;
     left: 20px;

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="RobotoMono-Regular.ttf" />
     <Content Include="style.css" />
     <Content Include="__resource.lua" />
     <Content Include="GoogleSans-Regular.ttf" />
