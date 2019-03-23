@@ -22,18 +22,18 @@ namespace Admin.Client
                 var vehicle = Game.PlayerPed.CurrentVehicle;
                 if (vehicle == null)
                 {
-                    TriggerEvent("chat:addMessage", new 
+                    TriggerEvent("chat:addMessage", new
                     {
-                        color = new[] { 255, 0, 0 },
-                        args = new[] { "AdmCmd", $"Nie jesteś w pojeździe!" }
+                        color = new[] {255, 0, 0},
+                        args = new[] {"AdmCmd", "Nie jesteś w pojeździe!"}
                     });
                     return;
                 }
-                
+
                 // Usuwanie pojazdu
                 vehicle.Delete();
                 // Wiadomość zwrotna do gracza
-                TriggerEvent("chat:addMessage", new 
+                TriggerEvent("chat:addMessage", new
                 {
                     color = new[] {255, 0, 0},
                     args = new[] {"AdmCmd", "Pojazd został usunięty!"}

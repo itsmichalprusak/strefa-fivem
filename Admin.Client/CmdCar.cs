@@ -20,32 +20,29 @@ namespace Admin.Client
             {
                 // sprawdzenie czy argument został przekazany
                 var model = "adder";
-                if (args.Count > 0)
-                {
-                    model = args[0].ToString();
-                }
+                if (args.Count > 0) model = args[0].ToString();
 
                 // Sprawdza czy model istnieje
                 // Oczywiscie za pomocą API CitizeFX
                 var hash = (uint) GetHashKey(model);
                 if (!IsModelInCdimage(hash) || !IsModelAVehicle(hash))
                 {
-                    TriggerEvent("chat:addMessage", new 
+                    TriggerEvent("chat:addMessage", new
                     {
-                        color = new[] { 255, 0, 0 },
-                        args = new[] { "AdmCmd", $"Błąd! Podany model: {model} nie istnieje!" }
+                        color = new[] {255, 0, 0},
+                        args = new[] {"AdmCmd", $"Błąd! Podany model: {model} nie istnieje!"}
                     });
                     return;
                 }
 
                 // Tworzenie pojazdu
                 var vehicle = await World.CreateVehicle(model, Game.PlayerPed.Position, Game.PlayerPed.Heading);
-    
+
                 // Daje gracza do pojazdu
                 Game.PlayerPed.SetIntoVehicle(vehicle, VehicleSeat.Driver);
 
                 // Wiadomość zwrotna do gracza
-                TriggerEvent("chat:addMessage", new 
+                TriggerEvent("chat:addMessage", new
                 {
                     color = new[] {255, 0, 0},
                     args = new[] {"AdmCmd", $"Stworzyłeś pojazd o modelu: {model}!"}

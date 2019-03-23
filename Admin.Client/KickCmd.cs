@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using static CitizenFX.Core.Native.API;
 
 namespace Admin.Client
 {
@@ -11,6 +9,7 @@ namespace Admin.Client
     {
         public KickCmd()
         {
+            //EventHandlers["SyncCallBack"] += new Action<string>(SyncCallBack));
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
         }
 
@@ -20,31 +19,21 @@ namespace Admin.Client
             {
                 // Sprawdzenie czy gracz jest na serwerze
                 int id = -1;
-
-                if (Int32.TryParse(args[0].ToString(), out id))
+                if (int.TryParse(args[0].ToString(), out id))
                 {
-                    var online = false;
+                    int playerId = API.GetPlayerFromServerId(id);
+                    bool online = API.NetworkIsPlayerActive(playerId);
 
-                    for (var i = 0; i < Players.Count(); i++)
-                    {
-                        if (Players.ToList()[i].ServerId == id)
-                            online = true;
-                    }
-        
+                    // Jesli gracz jest offline -> Wiadomosc zwrotna ze jest offline.
                     if (!online)
                     {
-                        Debug.WriteLine($"Player: [ID:{id}] is offline(?)");
-                        TriggerEvent("chat:addMessage", new 
-                        {
-                            color = new[] { 255, 0, 0 },
-                            args = new[] { "AdmCmd", $"Błąd! Gracz o  [ID:{id}] nie znajduje się na serwerze!" }
-                        });
+                        TriggerEvent("chat:addMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] jest offline!");
                     }
+                    // Jesli grasz jest online -> Wysylanie globalnej wiadomosci do serwera + triggerowanie ewentu po stronie serwera.
                     else
                     {
-                        Debug.WriteLine($"Player: [ID:{id}] is online(?)");
-                        TriggerServerEvent("srp_admin:kick");
-                        TriggerEvent("chatMessage", $"Gracz o [ID:{id}] wyleciał z serwera!");
+                        TriggerEvent("chatMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] wyleciał z serwera!");
+                        TriggerServerEvent("srp_admin:kick", id);
                     }
                 }
             }), false);
