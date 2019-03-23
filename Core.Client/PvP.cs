@@ -2,7 +2,7 @@ using System;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
 
-namespace Admin.Client
+namespace Core.Client
 {
     public class PvP : BaseScript
     {

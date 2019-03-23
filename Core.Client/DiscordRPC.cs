@@ -4,7 +4,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using static CitizenFX.Core.Native.API;
 
-namespace Discord.Client
+namespace Core.Client
 {
     public class DiscordRPC : BaseScript
     {

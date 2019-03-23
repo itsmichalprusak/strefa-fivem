@@ -47,9 +47,14 @@
     <ItemGroup>
         <Compile Include="CmdCar.cs" />
         <Compile Include="CmdDelCar.cs" />
-        <Compile Include="DiscordRPC.cs" />
+        <Compile Include="KickCmd.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="PvP.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Core.Client\Core.Client.csproj">
+        <Project>{a88c5937-eab8-4ab7-8d9e-45b368b295f6}</Project>
+        <Name>Core.Client</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
