@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
@@ -30,7 +31,7 @@ namespace Core.Client
                 // Pobieranie ID Gracza
                 var id = GetPlayerServerId(PlayerId());
                 // Pobieranie Wszystkich Graczy na serwerze
-                var players = NetworkGetNumConnectedPlayers();
+                var players = Players.Count();
                 // Pobieranie Nicku gracza (Później będzie zmienione na imię i nazwisko ic postaci)
                 var playername = GetPlayerName(PlayerId());
                 // Tytuł, w co dany gracz gra.
@@ -40,13 +41,13 @@ namespace Core.Client
                 // Obrazek
                 SetDiscordRichPresenceAsset("logo");
                 // Hover - Tekst po najechaniu na obrazek
-                SetDiscordRichPresenceAssetText($"StrefaRP.pl - {players}/32 online");
+                SetDiscordRichPresenceAssetText($"StrefaRP.pl - {players}/64 online");
                 // Obrazek postaci
                 SetDiscordRichPresenceAssetSmall("character");
                 // Hover - Tekst po najechaniu na obrazek postaci
                 SetDiscordRichPresenceAssetSmallText(playername);
                 // Opis który pobiera ID gracza oraz ilość graczy
-                SetRichPresence($"ID: {id} - {players}/32 online");
+                SetRichPresence($"ID: {id} - {players}/64 online");
                 _lastUpdateTime = GetGameTimer();
             }
             await Delay(1000);
