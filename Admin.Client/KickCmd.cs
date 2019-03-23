@@ -15,28 +15,36 @@ namespace Admin.Client
 
         private void OnClientResourceStart(string resourceName)
         {
-            if (GetCurrentResourceName() != resourceName) return;
-            
-            RegisterCommand("kick", new Action<int, List<object>, string>(async (source, args, raw) =>
+            API.RegisterCommand("kick", new Action<int, List<object>, string>((source, args, raw) =>
+            {
+                // Sprawdzenie czy gracz jest na serwerze
+                int id = -1;
+
+                if (Int32.TryParse(args[0].ToString(), out id))
                 {
-                    // Sprawdzenie czy gracz jest na serwerze
-                    var playerId = GetPlayerServerId(PlayerId());
-                    var online = NetworkIsPlayerActive(PlayerId());
-                    Debug.Write($"{online}");
+                    var online = API.NetworkIsPlayerActive(id);
+        
                     if (!online)
                     {
-                        // Wiadomosc zwrota ze gracz nie jest na serwerze
+                        Debug.WriteLine($"Player: [ID:{id}] is offline(?)");
                         TriggerEvent("chat:addMessage", new 
                         {
                             color = new[] { 255, 0, 0 },
-                            args = new[] { "AdmCmd", $"Błąd! Gracz o  [ID:{playerId}] nie znajduje się na serwerze!" }
+                            args = new[] { "AdmCmd", $"Błąd! Gracz o  [ID:{id}] nie znajduje się na serwerze!" }
                         });
-                        return;
                     }
-                    
-                    TriggerServerEvent("srp_admin:kick");
-                    await Delay(1000);
-                }), false);
+                    else
+                    {
+                        Debug.WriteLine($"Player: [ID:{id}] is online(?)");
+                        TriggerServerEvent("srp_admin:kick");
+                        TriggerEvent("chatMessage", new 
+                        {
+                            color = new[] { 255, 0, 0 },
+                            args = new[] { "AdmCmd", $"Gracz o [ID:{id}] wyleciał z serwera!" }
+                        });
+                    }
+                }
+            }), false);
         }
     }
 }
