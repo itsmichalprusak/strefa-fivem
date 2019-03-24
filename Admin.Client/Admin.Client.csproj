@@ -47,9 +47,10 @@
   <ItemGroup>
     <Compile Include="CmdCar.cs" />
     <Compile Include="CmdDelCar.cs" />
+    <Compile Include="Helpers\NativeWrappers.cs" />
     <Compile Include="KickCmd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReviveCommand.cs" />
+    <Compile Include="ReviveCmd.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Client\Core.Client.csproj">
