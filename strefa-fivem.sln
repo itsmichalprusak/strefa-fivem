@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Server", "Admin.Serve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Client", "Framework.Client\Framework.Client.csproj", "{686D6968-F25B-4865-A959-64199410A0BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whitelist.Daemon", "Whitelist.Daemon\Whitelist.Daemon.csproj", "{D01F6589-FDF0-4565-9561-256A63C99FE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{686D6968-F25B-4865-A959-64199410A0BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{686D6968-F25B-4865-A959-64199410A0BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{686D6968-F25B-4865-A959-64199410A0BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
