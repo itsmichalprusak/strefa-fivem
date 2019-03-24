@@ -4,7 +4,9 @@
     <attachedFolders>
       <Path>Whitelist.Client</Path>
     </attachedFolders>
-    <explicitIncludes />
+    <explicitIncludes>
+      <Path>Whitelist.Daemon</Path>
+    </explicitIncludes>
     <explicitExcludes>
       <Path>Whitelist.Client</Path>
     </explicitExcludes>
