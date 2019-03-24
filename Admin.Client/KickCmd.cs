@@ -19,7 +19,7 @@ namespace Admin.Client
             {
                 // Sprawdzenie czy gracz jest na serwerze
                 var reason = string.Join(" ", args.GetRange(1, args.Count - 1));
-                if (!int.TryParse(args[0].ToString(), out var id) || string.IsNullOrEmpty(reason)) return;
+                if (!int.TryParse(args[0].ToString(), out var id)) return;
                 var playerId = API.GetPlayerFromServerId(id);
                 var online = API.NetworkIsPlayerActive(playerId);
 
@@ -35,7 +35,7 @@ namespace Admin.Client
                 else
                 {
                     TriggerEvent("chatMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] wyleciał z serwera!");
-                    TriggerServerEvent("srp_admin:kick", id);
+                    TriggerServerEvent("srp_admin:kick", id, string.IsNullOrEmpty(reason) ? "Nie podano powodu." : reason);
                 }
             }), false);
         }
