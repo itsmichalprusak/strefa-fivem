@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Ezi\\RiderProjects\\strefa-fivem\\Whitelist.Daemon\\Whitelist.Daemon.csproj",
+    "projectUniqueName": "C:\\Users\\Admin\\RiderProjects\\strefa-fivem\\Whitelist.Daemon\\Whitelist.Daemon.csproj",
     "projectName": "Whitelist.Daemon",
-    "projectPath": "C:\\Users\\Ezi\\RiderProjects\\strefa-fivem\\Whitelist.Daemon\\Whitelist.Daemon.csproj",
-    "outputPath": "C:\\Users\\Ezi\\RiderProjects\\strefa-fivem\\Whitelist.Daemon\\obj\\",
+    "projectPath": "C:\\Users\\Admin\\RiderProjects\\strefa-fivem\\Whitelist.Daemon\\Whitelist.Daemon.csproj",
+    "outputPath": "C:\\Users\\Admin\\RiderProjects\\strefa-fivem\\Whitelist.Daemon\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
