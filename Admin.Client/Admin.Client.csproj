@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdutyCmd.cs" />
     <Compile Include="CmdCar.cs" />
     <Compile Include="CmdDelCar.cs" />
     <Compile Include="Helpers\NativeWrappers.cs" />

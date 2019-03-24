@@ -18,11 +18,11 @@ namespace Admin.Client
             {
                 int pAduty = 1;
                 string pAdmin = "Admin";
-                if (pAduty > 0)
+                if (pAdmin > 1)
                 {
                     TriggerEvent("chat:addMessage", $"^1[Admin]: ^0 Wchodzisz na służbę {pAdmin}");
                 }
-                else if()
+                else if(pAdmin > 1)
                 {
                     TriggerEvent("chat:addMessage", $"^1[Admin]: ^0 Schodzisz z służby {pAdmin}");
                 }
