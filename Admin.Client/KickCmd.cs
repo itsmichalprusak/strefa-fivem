@@ -9,7 +9,6 @@ namespace Admin.Client
     {
         public KickCmd()
         {
-            //EventHandlers["SyncCallBack"] += new Action<string>(SyncCallBack));
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
         }
 

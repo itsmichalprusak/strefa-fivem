@@ -4,11 +4,11 @@ using CitizenFX.Core.Native;
 
 namespace Admin.Server
 {
-    class Kick : BaseScript
+    internal class Kick : BaseScript
     {
         public Kick()
         {
-            EventHandlers["srp_admin:kickReson"] += new Action<Player,int,string>(OnPlayerKickReson);
+            EventHandlers["srp_admin:kickReson"] += new Action<Player, int, string>(OnPlayerKickReson);
             EventHandlers["srp_admin:kick"] += new Action<Player, int>(OnPlayerKick);
         }
 
