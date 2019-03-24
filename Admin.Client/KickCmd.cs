@@ -35,7 +35,7 @@ namespace Admin.Client
                 else
                 {
                     TriggerEvent("chatMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] wyleciał z serwera!");
-                    TriggerServerEvent("srp_admin:kickReson", id, string.IsNullOrEmpty(reason) ? "Nie podano powodu." : reason);
+                    TriggerServerEvent("srp_admin:kick", id, string.IsNullOrEmpty(reason) ? "Nie podano powodu." : reason);
                 }
             }), false);
         }
