@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Client", "Framewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whitelist.Daemon", "Whitelist.Daemon\Whitelist.Daemon.csproj", "{D01F6589-FDF0-4565-9561-256A63C99FE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whitelist.Client", "Whitelist.Client\Whitelist.Client.csproj", "{29C981A8-7EBB-4E18-B0B5-CCCB371CC557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Whitelist.Server", "Whitelist.Server\Whitelist.Server.csproj", "{FAE512C0-6D81-4A00-8EFA-0EA6DDDE6A61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,13 @@ Global
 		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D01F6589-FDF0-4565-9561-256A63C99FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C981A8-7EBB-4E18-B0B5-CCCB371CC557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C981A8-7EBB-4E18-B0B5-CCCB371CC557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C981A8-7EBB-4E18-B0B5-CCCB371CC557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C981A8-7EBB-4E18-B0B5-CCCB371CC557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAE512C0-6D81-4A00-8EFA-0EA6DDDE6A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAE512C0-6D81-4A00-8EFA-0EA6DDDE6A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAE512C0-6D81-4A00-8EFA-0EA6DDDE6A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAE512C0-6D81-4A00-8EFA-0EA6DDDE6A61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
