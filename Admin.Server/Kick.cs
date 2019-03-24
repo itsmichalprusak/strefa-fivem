@@ -18,11 +18,8 @@ namespace Admin.Server
             OnPlayerKickReson(source, id, "You've been kicked");
         }
 
-        // Kick sam w sobie
         private void OnPlayerKickReson([FromSource] Player source, int id, string reason)
         {
-            // Debug w konsoli serwera
-            Debug.WriteLine($"[DeBug] SerwerEwent Kick dla id: '{id}' => '{reason}'");
             // Funckja odpowiedzialna za kicki
             API.DropPlayer(id.ToString(), $"Kick: {reason}");
         }

@@ -18,7 +18,8 @@ namespace Admin.Client
             {
                 // Sprawdzenie czy gracz jest na serwerze
                 int id = -1;
-                if (int.TryParse(args[0].ToString(), out id))
+                var reason = args[1];
+                if (int.TryParse(args[0].ToString(), out id) && reason != null )
                 {
                     int playerId = API.GetPlayerFromServerId(id);
                     bool online = API.NetworkIsPlayerActive(playerId);
@@ -26,7 +27,10 @@ namespace Admin.Client
                     // Jesli gracz jest offline -> Wiadomosc zwrotna ze jest offline.
                     if (!online)
                     {
-                        TriggerEvent("chat:addMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] jest offline!");
+                        TriggerEvent("chat:addMessage", new
+                        {
+                            args = new[] {$"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] jest offline!"}
+                        });
                     }
                     // Jesli grasz jest online -> Wysylanie globalnej wiadomosci do serwera + triggerowanie ewentu po stronie serwera.
                     else

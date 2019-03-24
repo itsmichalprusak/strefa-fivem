@@ -41,6 +41,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Helpers\NativeWrappers.cs" />
         <Compile Include="Kick.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
