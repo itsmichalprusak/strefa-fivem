@@ -18,7 +18,7 @@ namespace Admin.Client
             API.RegisterCommand("kick", new Action<int, List<object>, string>((source, args, raw) =>
             {
                 // Sprawdzenie czy gracz jest na serwerze
-                var reason = string.Join(" ", args.GetRange(1, args.Count));
+                var reason = string.Join(" ", args.GetRange(1, args.Count - 1));
                 if (!int.TryParse(args[0].ToString(), out var id) || string.IsNullOrEmpty(reason)) return;
                 var playerId = API.GetPlayerFromServerId(id);
                 var online = API.NetworkIsPlayerActive(playerId);
