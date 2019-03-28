@@ -40,7 +40,9 @@ namespace Admin.Client.Commands
 
                 // Daje gracza do pojazdu
                 Game.PlayerPed.SetIntoVehicle(vehicle, VehicleSeat.Driver);
+                // Pobieranie informacji czy gracz jest w pojeździe.
                 var pedinveh = API.GetVehiclePedIsIn(API.PlayerPedId(), false);
+                // Ustawia customową tablice rejestracyjną dla respionego pojazdu.
                 API.SetVehicleNumberPlateText(pedinveh, "ADMIN");
                 API.SetVehicleNumberPlateTextIndex(pedinveh, 1);
 
