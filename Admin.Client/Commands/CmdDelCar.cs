@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CitizenFX.Core;
-using static CitizenFX.Core.Native.API;
+using CitizenFX.Core.Native;
 
 namespace Admin.Client.Commands
 {
@@ -9,23 +9,22 @@ namespace Admin.Client.Commands
     {
         public CmdDelCar()
         {
-            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+            API.RegisterCommand("delcar", new Action<int, List<object>, string>(OnAdminDelCar), false);
         }
 
-        private void OnClientResourceStart(string resourceName)
+        //private void OnClientResourceStart(string resourceName)
+        private async void OnAdminDelCar(int p1, List<object> args, string p2)
         {
-            if (GetCurrentResourceName() != resourceName) return;
-
-            RegisterCommand("delcar", new Action<int, List<object>, string>(async (source, args, raw) =>
+            if (AdutyCmd.pAduty)
             {
                 // Sprawdzanie czy gracz jest w pojeździe
                 var vehicle = Game.PlayerPed.CurrentVehicle;
+
                 if (vehicle == null)
                 {
                     TriggerEvent("chat:addMessage", new
                     {
-                        color = new[] {255, 0, 0},
-                        args = new[] {"AdmCmd", "Nie jesteś w pojeździe!"}
+                        args = new[] {"^1[ADMIN]: ^0Nie znajdujesz się pojeździe!"}
                     });
                     return;
                 }
@@ -35,11 +34,14 @@ namespace Admin.Client.Commands
                 // Wiadomość zwrotna do gracza
                 TriggerEvent("chat:addMessage", new
                 {
-                    color = new[] {255, 0, 0},
-                    args = new[] {"AdmCmd", "Pojazd został usunięty!"}
+                    args = new[] {"^1[ADMIN]: ^0Pojazd został usunięty"}
                 });
                 await Delay(1000);
-            }), false);
+            }
+            else if (AdutyCmd.pAduty == false)
+            {
+                return;
+            }
         }
     }
 }

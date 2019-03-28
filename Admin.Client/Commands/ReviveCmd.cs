@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CitizenFX.Core;
-using static CitizenFX.Core.Native.API;
+using CitizenFX.Core.Native;
 
 namespace Admin.Client.Commands
 {
@@ -9,17 +9,20 @@ namespace Admin.Client.Commands
     {
         public ReviveCmd()
         {
-            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+            API.RegisterCommand("revive", new Action<int, List<object>, string>(OnAdminPlayerRevive), false);
         }
 
-        private static void OnClientResourceStart(string resourceName)
+        private void OnAdminPlayerRevive(int p1, List<object> args, string p2)
         {
-            RegisterCommand("revive", new Action<int, List<object>, string>((source, args, raw) =>
+            if (AdutyCmd.pAduty)
             {
                 var position = Game.Player.Character.Position;
-                NetworkResurrectLocalPlayer(
-                    position.X, position.Y, position.Z, Game.Player.Character.Heading, false, false);
-            }), false);
+                API.NetworkResurrectLocalPlayer(position.X, position.Y, position.Z, Game.Player.Character.Heading, false, false);   
+            }
+            else if (AdutyCmd.pAduty == false)
+            {
+                return;
+            }
         }
     }
 }

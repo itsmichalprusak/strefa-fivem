@@ -9,12 +9,12 @@ namespace Admin.Client.Commands
     {
         public KickCmd()
         {
-            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+            API.RegisterCommand("kick", new Action<int, List<object>, string>(OnAdminPlayerKick), false);
         }
 
-        private static void OnClientResourceStart(string resourceName)
+        private void OnAdminPlayerKick(int p1, List<object> args, string p2)
         {
-            API.RegisterCommand("kick", new Action<int, List<object>, string>((source, args, raw) =>
+            if(AdutyCmd.pAduty)
             {
                 // Sprawdzenie czy gracz jest na serwerze
                 var reason = string.Join(" ", args.GetRange(1, args.Count - 1));
@@ -36,7 +36,11 @@ namespace Admin.Client.Commands
                     TriggerEvent("chatMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] wyleciał z serwera!");
                     TriggerServerEvent("srp_admin:kick", id, string.IsNullOrEmpty(reason) ? "Nie podano powodu." : reason);
                 }
-            }), false);
+            }
+            else if (AdutyCmd.pAduty == false)
+            {
+                return;
+            }
         }
     }
 }

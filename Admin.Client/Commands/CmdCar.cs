@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using CitizenFX.Core;
-using static CitizenFX.Core.Native.API;
+using CitizenFX.Core.Native;
+
 
 namespace Admin.Client.Commands
 {
@@ -9,14 +10,12 @@ namespace Admin.Client.Commands
     {
         public CmdCar()
         {
-            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+            API.RegisterCommand("car", new Action<int, List<object>, string>(OnAdminSpawnCar), false);
         }
 
-        private void OnClientResourceStart(string resourceName)
+        private async void OnAdminSpawnCar(int p1, List<object> args, string p2)
         {
-            if (GetCurrentResourceName() != resourceName) return;
-
-            RegisterCommand("car", new Action<int, List<object>, string>(async (source, args, raw) =>
+            if (AdutyCmd.pAduty)
             {
                 // sprawdzenie czy argument został przekazany
                 var model = "adder";
@@ -24,13 +23,12 @@ namespace Admin.Client.Commands
 
                 // Sprawdza czy model istnieje
                 // Oczywiscie za pomocą API CitizeFX
-                var hash = (uint) GetHashKey(model);
-                if (!IsModelInCdimage(hash) || !IsModelAVehicle(hash))
+                var hash = (uint) API.GetHashKey(model);
+                if (!API.IsModelInCdimage(hash) || !API.IsModelAVehicle(hash))
                 {
                     TriggerEvent("chat:addMessage", new
                     {
-                        color = new[] {255, 0, 0},
-                        args = new[] {"AdmCmd", $"Błąd! Podany model: {model} nie istnieje!"}
+                        args = new[] {$"^1[ADMIN]: ^0Pojazd o modelu: {model} nie istnieje"}
                     });
                     return;
                 }
@@ -44,11 +42,14 @@ namespace Admin.Client.Commands
                 // Wiadomość zwrotna do gracza
                 TriggerEvent("chat:addMessage", new
                 {
-                    color = new[] {255, 0, 0},
-                    args = new[] {"AdmCmd", $"Stworzyłeś pojazd o modelu: {model}!"}
+                    args = new[] {$"^1[ADMIN]: ^0Stworzyłeś pojazd o modelu: {model}"}
                 });
                 await Delay(1000);
-            }), false);
+            }
+            else if (AdutyCmd.pAduty == false)
+            {
+                return;
+            }
         }
     }
 }
