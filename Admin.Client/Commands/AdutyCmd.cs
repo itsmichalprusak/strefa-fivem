@@ -17,6 +17,8 @@ namespace Admin.Client.Commands
         {
             pAduty = !AdutyCmd.pAduty;
             
+            // Jeśli Admin wejdzie na aDuty to dostaje wiadomość zwrotną
+            // TO:DO - Dodać blipy wszystkich graczy na mapie od odpowiedniego poziomu admina
             if (pAduty)
             {
                 TriggerEvent("chat:addMessage", new
@@ -24,6 +26,8 @@ namespace Admin.Client.Commands
                     args = new[] {$"^1[ADMIN]: ^0Wchodzisz na służbę Administratora."}
                 });
             }
+            
+            // Jesli Admin nie jest na aduty nie dostaje żadnej wiadomości zwrotnej.
             else if (pAduty == false)
             {
                 TriggerEvent("chat:addMessage", new

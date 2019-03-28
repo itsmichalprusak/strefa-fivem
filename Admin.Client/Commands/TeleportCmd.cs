@@ -14,6 +14,8 @@ namespace Admin.Client.Commands
         
         private async void OnAdminTpToCords(int p1, List<object> args, string p2)
         {
+            // Jeśli Admin jest na Aduty wykonuje się komenda
+            // TO:DO Dodać dodatkowe uprawnienia
             if (AdutyCmd.pAduty)
             {
                 // Jeśli w komendzie występują 3 argumenty to komenda tp wykonuje się z kordynatami x, y, z.
@@ -96,6 +98,8 @@ namespace Admin.Client.Commands
                     });
                 }   
             }
+            
+            // Jesli Admin nie jest na aduty nie dostaje żadnej wiadomości zwrotnej.
             else if (AdutyCmd.pAduty == false)
             {
                 return;

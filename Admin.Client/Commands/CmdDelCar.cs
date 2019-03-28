@@ -15,6 +15,8 @@ namespace Admin.Client.Commands
         //private void OnClientResourceStart(string resourceName)
         private async void OnAdminDelCar(int p1, List<object> args, string p2)
         {
+            // Jeśli Admin jest na Aduty wykonuje się komenda
+            // TO:DO Dodać dodatkowe uprawnienia
             if (AdutyCmd.pAduty)
             {
                 // Sprawdzanie czy gracz jest w pojeździe
@@ -38,6 +40,8 @@ namespace Admin.Client.Commands
                 });
                 await Delay(1000);
             }
+            
+            // Jesli Admin nie jest na aduty nie dostaje żadnej wiadomości zwrotnej.
             else if (AdutyCmd.pAduty == false)
             {
                 return;

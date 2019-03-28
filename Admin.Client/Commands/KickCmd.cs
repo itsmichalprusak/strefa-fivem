@@ -14,6 +14,8 @@ namespace Admin.Client.Commands
 
         private void OnAdminPlayerKick(int p1, List<object> args, string p2)
         {
+            // Jeśli Admin jest na Aduty wykonuje się komenda
+            // TO:DO Dodać dodatkowe uprawnienia
             if(AdutyCmd.pAduty)
             {
                 // Sprawdzenie czy gracz jest na serwerze
@@ -37,6 +39,8 @@ namespace Admin.Client.Commands
                     TriggerServerEvent("srp_admin:kick", id, string.IsNullOrEmpty(reason) ? "Nie podano powodu." : reason);
                 }
             }
+            
+            // Jesli Admin nie jest na aduty nie dostaje żadnej wiadomości zwrotnej.
             else if (AdutyCmd.pAduty == false)
             {
                 return;
