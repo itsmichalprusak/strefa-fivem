@@ -12,7 +12,7 @@ namespace Admin.Client.Commands
         {
             API.RegisterCommand("car", new Action<int, List<object>, string>(OnAdminSpawnCar), false);
         }
-
+        
         private async void OnAdminSpawnCar(int p1, List<object> args, string p2)
         {
             // Jeśli Admin jest na Aduty wykonuje się komenda
@@ -40,6 +40,9 @@ namespace Admin.Client.Commands
 
                 // Daje gracza do pojazdu
                 Game.PlayerPed.SetIntoVehicle(vehicle, VehicleSeat.Driver);
+                var pedinveh = API.GetVehiclePedIsIn(API.PlayerPedId(), false);
+                API.SetVehicleNumberPlateText(pedinveh, "ADMIN");
+                API.SetVehicleNumberPlateTextIndex(pedinveh, 1);
 
                 // Wiadomość zwrotna do gracza
                 TriggerEvent("chat:addMessage", new
