@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 
@@ -12,10 +7,10 @@ namespace Core.Client.Utilities
     {
         public static bool NetworkIsSessionStarted()
         {
-            return Function.Call<bool>(Hash.NETWORK_IS_SESSION_STARTED, new InputArgument[0]);
+            return Function.Call<bool>(Hash.NETWORK_IS_SESSION_STARTED);
         }
 
-        static public void SendNuiMessage(string message)
+        public static void SendNuiMessage(string message)
         {
             Function.Call(Hash.SEND_NUI_MESSAGE, message);
         }
@@ -67,12 +62,14 @@ namespace Core.Client.Utilities
 
         public static void NetworkResurrectLocalPlayer(Vector3 location, float heading)
         {
-            Function.Call(Hash.NETWORK_RESURRECT_LOCAL_PLAYER, location.X, location.Y, location.Z, heading, true, true, false);
+            Function.Call(Hash.NETWORK_RESURRECT_LOCAL_PLAYER, location.X, location.Y, location.Z, heading, true, true,
+                false);
         }
 
         public static void SetEntityCoordsNoOffset(int handle, Vector3 location)
-        { 
-            Function.Call(Hash.SET_ENTITY_COORDS_NO_OFFSET, handle, location.X, location.Y, location.Z, false, false, false, true);
+        {
+            Function.Call(Hash.SET_ENTITY_COORDS_NO_OFFSET, handle, location.X, location.Y, location.Z, false, false,
+                false, true);
         }
 
         public static void ClearPlayerWantedLevel(int playerId)
@@ -82,12 +79,12 @@ namespace Core.Client.Utilities
 
         public static void ShutdownLoadingScreen()
         {
-            Function.Call(Hash.SHUTDOWN_LOADING_SCREEN, new InputArgument[0]);
+            Function.Call(Hash.SHUTDOWN_LOADING_SCREEN);
         }
 
         public static bool HasCollisionLoadedAroundEntity(int ped)
         {
             return Function.Call<bool>(Hash.HAS_COLLISION_LOADED_AROUND_ENTITY, ped);
         }
-}
+    }
 }

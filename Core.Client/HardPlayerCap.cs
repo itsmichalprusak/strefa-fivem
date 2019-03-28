@@ -1,21 +1,21 @@
-using CitizenFX.Core;
-using Core.Client.Utilities;
 using System;
 using System.Threading.Tasks;
+using CitizenFX.Core;
+using Core.Client.Utilities;
 
 namespace Core.Client
 {
     /// <summary>
-    /// Standalone'owy skrypt pomagający w utrzymaniu capa 64 graczy, będący zamiennikiem FiveMowskiego w Lua.
+    ///     Standalone'owy skrypt pomagający w utrzymaniu capa 64 graczy, będący zamiennikiem FiveMowskiego w Lua.
     /// </summary>
     public class HardPlayerCap : BaseScript
     {
         /// <summary>
-        /// Konstruktor, wywoływany przy zinstancjonowaniu skryptu.
+        ///     Konstruktor, wywoływany przy zinstancjonowaniu skryptu.
         /// </summary>
         public HardPlayerCap()
         {
-            BaseScript.Delay(1000);
+            Delay(1000);
             Debug.WriteLine("[Core] HardCap wystartował.");
             Tick += PlayerActivatedCheck;
         }
@@ -26,10 +26,10 @@ namespace Core.Client
         }
 
         /// <summary>
-        /// Sprawdza, czy gracz został poprawnie zaktywowany sieciowo i dołączony do serwera.
+        ///     Sprawdza, czy gracz został poprawnie zaktywowany sieciowo i dołączony do serwera.
         /// </summary>
         /// <returns>
-        /// Wywołane zadanie (Task).
+        ///     Wywołane zadanie (Task).
         /// </returns>
         private async Task PlayerActivatedCheck()
         {
@@ -38,7 +38,7 @@ namespace Core.Client
                 TriggerServerEvent("HardPlayerCap.PlayerActivated");
                 Tick -= PlayerActivatedCheck;
             }
-            
+
             await Task.FromResult(0);
         }
     }

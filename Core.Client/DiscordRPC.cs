@@ -50,6 +50,7 @@ namespace Core.Client
                 SetRichPresence($"ID: {id} - {players}/64 online");
                 _lastUpdateTime = GetGameTimer();
             }
+
             await Delay(1000);
         }
     }
