@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AdutyCmd.cs" />
     <Compile Include="Commands\CmdCar.cs" />
     <Compile Include="Commands\CmdDelCar.cs" />
+    <Compile Include="Commands\GodCmd.cs" />
     <Compile Include="Commands\KickCmd.cs" />
     <Compile Include="Commands\ReviveCmd.cs" />
     <Compile Include="Commands\TeleportCmd.cs" />
