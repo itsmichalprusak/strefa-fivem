@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
 
-namespace Admin.Client
+namespace Admin.Client.Commands
 {
     public class ReviveCmd : BaseScript
     {

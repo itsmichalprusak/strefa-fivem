@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 
-namespace Admin.Client
+namespace Admin.Client.Commands
 {
     public class TeleportCmd : BaseScript
     {

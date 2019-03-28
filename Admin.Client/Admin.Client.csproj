@@ -41,13 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CmdCar.cs" />
-    <Compile Include="CmdDelCar.cs" />
+    <Compile Include="Commands\CmdCar.cs" />
+    <Compile Include="Commands\CmdDelCar.cs" />
+    <Compile Include="Commands\KickCmd.cs" />
+    <Compile Include="Commands\ReviveCmd.cs" />
+    <Compile Include="Commands\TeleportCmd.cs" />
     <Compile Include="Helpers\NativeWrappers.cs" />
-    <Compile Include="KickCmd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReviveCmd.cs" />
-    <Compile Include="TeleportCmd.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Client\Core.Client.csproj">
