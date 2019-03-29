@@ -5,9 +5,9 @@ using CitizenFX.Core.Native;
 
 namespace Admin.Client.Commands
 {
-    public class CmdDelCar : BaseScript
+    public class DelCarCmd : BaseScript
     {
-        public CmdDelCar()
+        public DelCarCmd()
         {
             API.RegisterCommand("delcar", new Action<int, List<object>, string>(OnAdminDelCar), false);
         }

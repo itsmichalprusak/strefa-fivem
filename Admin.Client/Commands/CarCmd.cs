@@ -6,9 +6,9 @@ using CitizenFX.Core.Native;
 
 namespace Admin.Client.Commands
 {
-    public class CmdCar : BaseScript
+    public class CarCmd : BaseScript
     {
-        public CmdCar()
+        public CarCmd()
         {
             API.RegisterCommand("car", new Action<int, List<object>, string>(OnAdminSpawnCar), false);
         }
@@ -41,10 +41,10 @@ namespace Admin.Client.Commands
                 // Daje gracza do pojazdu
                 Game.PlayerPed.SetIntoVehicle(vehicle, VehicleSeat.Driver);
                 // Pobieranie informacji czy gracz jest w pojeździe.
-                var pedinveh = API.GetVehiclePedIsIn(API.PlayerPedId(), false);
+                //var pedinveh = API.GetVehiclePedIsIn(API.PlayerPedId(), false);
                 // Ustawia customową tablice rejestracyjną dla respionego pojazdu.
-                API.SetVehicleNumberPlateText(pedinveh, "ADMIN");
-                API.SetVehicleNumberPlateTextIndex(pedinveh, 1);
+                //API.SetVehicleNumberPlateText(pedinveh, "ADMIN");
+                //API.SetVehicleNumberPlateTextIndex(pedinveh, 1);
 
                 // Wiadomość zwrotna do gracza
                 TriggerEvent("chat:addMessage", new
