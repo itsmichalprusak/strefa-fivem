@@ -27,6 +27,7 @@ namespace Admin.Client.Commands
                  // Jeśli pGodMode jest true to uruchamia się GodMode
                  if (_pGodMode)
                  {
+                    API.SetEntityHealth(playerId, 1000);
                     API.SetEntityInvincible(playerId, true);
                     API.SetPlayerInvincible(playerId, true);
                     API.SetPedCanRagdoll(playerId, false);
