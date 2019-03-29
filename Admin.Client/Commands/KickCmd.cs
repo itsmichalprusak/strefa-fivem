@@ -29,13 +29,13 @@ namespace Admin.Client.Commands
                 {
                     TriggerEvent("chat:addMessage", new
                     {
-                        args = new[] {$"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] jest offline!"}
+                        args = new[] {$"^^1[ADMIN]: ^0Gracz o [ID:^1{id}^0] jest offline!"}
                     });
                 }
                 // Jesli grasz jest online -> Wysylanie globalnej wiadomosci do serwera + triggerowanie ewentu po stronie serwera.
                 else
                 {
-                    TriggerEvent("chatMessage", $"^1AdmCmd: ^0Gracz o [ID:^1{id}^0] wyleciał z serwera!");
+                    TriggerEvent("chatMessage", $"^1[ADMIN]: ^0Gracz o [ID:^1{id}^0] wyleciał z serwera!");
                     TriggerServerEvent("srp_admin:kick", id, string.IsNullOrEmpty(reason) ? "Nie podano powodu." : reason);
                 }
             }
