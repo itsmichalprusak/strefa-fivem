@@ -46,8 +46,10 @@
     <Compile Include="Commands\DelCarCmd.cs" />
     <Compile Include="Commands\GodCmd.cs" />
     <Compile Include="Commands\KickCmd.cs" />
+    <Compile Include="Commands\NoclipCmd.cs" />
     <Compile Include="Commands\ReviveCmd.cs" />
-    <Compile Include="Commands\TeleportCmd.cs" />
+    <Compile Include="Commands\TpToCords.cs" />
+    <Compile Include="Commands\TpToWpCmd.cs" />
     <Compile Include="Helpers\NativeWrappers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

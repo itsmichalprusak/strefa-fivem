@@ -27,16 +27,16 @@ namespace Admin.Client.Commands
                  // Jeśli pGodMode jest true to uruchamia się GodMode
                  if (_pGodMode)
                  {
-                    API.SetEntityHealth(playerId, 1000);
-                    API.SetEntityInvincible(playerId, true);
-                    API.SetPlayerInvincible(playerId, true);
-                    API.SetPedCanRagdoll(playerId, false);
-                    API.ClearPedBloodDamage(playerId);
-                    API.ResetPedVisibleDamage(playerId);
-                    API.ClearPedLastWeaponDamage(playerId);
-                    API.SetEntityProofs(playerId, true, true, true, true, true, true, true, true);
-                    API.SetEntityOnlyDamagedByPlayer(playerId, false);
-                    API.SetEntityCanBeDamaged(playerId, false);
+                     API.SetEntityHealth(playerId, 1000);
+                     API.SetEntityInvincible(playerId, true);
+                     API.SetPlayerInvincible(playerId, true);
+                     API.SetPedCanRagdoll(playerId, false);
+                     API.ClearPedBloodDamage(playerId);
+                     API.ResetPedVisibleDamage(playerId);
+                     API.ClearPedLastWeaponDamage(playerId);
+                     API.SetEntityProofs(playerId, true, true, true, true, true, true, true, true);
+                     API.SetEntityOnlyDamagedByPlayer(playerId, false);
+                     API.SetEntityCanBeDamaged(playerId, false);
                     TriggerEvent("chat:addMessage", new
                     {
                         args = new[] {$"^1[ADMIN]: ^0GodMode: ^2 Włączony"}
@@ -52,7 +52,7 @@ namespace Admin.Client.Commands
                      API.SetPedCanRagdoll(playerId, true);
                      API.ClearPedLastWeaponDamage(playerId);
                      API.SetEntityProofs(playerId, false, false, false, false, false, false, false, false);
-                     API.SetEntityOnlyDamagedByPlayer(playerId, true);
+                     API.SetEntityOnlyDamagedByPlayer(playerId, false);
                      API.SetEntityCanBeDamaged(playerId, true);
                      TriggerEvent("chat:addMessage", new
                      {

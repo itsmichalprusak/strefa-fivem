@@ -5,9 +5,9 @@ using CitizenFX.Core.Native;
 
 namespace Admin.Client.Commands
 {
-    public class TeleportCmd : BaseScript
+    public class TpToCords : BaseScript
     {
-        public TeleportCmd()
+        public TpToCords()
         {
             API.RegisterCommand("tp", new Action<int, List<object>, string>(OnAdminTpToCords), false);
         }

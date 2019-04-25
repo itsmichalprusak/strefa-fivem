@@ -21,6 +21,7 @@ namespace Admin.Client.Commands
             // TO:DO - Dodać blipy wszystkich graczy na mapie od odpowiedniego poziomu admina
             if (pAduty)
             {
+                
                 TriggerEvent("chat:addMessage", new
                 {
                     args = new[] {$"^1[ADMIN]: ^0Wchodzisz na służbę Administratora."}
