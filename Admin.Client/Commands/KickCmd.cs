@@ -25,7 +25,7 @@ namespace Admin.Client.Commands
                 var online = API.NetworkIsPlayerActive(playerId);
 
                 // Jesli gracz jest offline -> Wiadomosc zwrotna ze jest offline.
-                if (!online)
+                if (!online) 
                 {
                     TriggerEvent("chat:addMessage", new
                     {

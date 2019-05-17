@@ -42,11 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AdutyCmd.cs" />
+    <Compile Include="Commands\BringCmd.cs" />
     <Compile Include="Commands\CarCmd.cs" />
     <Compile Include="Commands\DelCarCmd.cs" />
     <Compile Include="Commands\GodCmd.cs" />
     <Compile Include="Commands\KickCmd.cs" />
-    <Compile Include="Commands\NoclipCmd.cs" />
     <Compile Include="Commands\ReviveCmd.cs" />
     <Compile Include="Commands\TpToCords.cs" />
     <Compile Include="Commands\TpToWpCmd.cs" />

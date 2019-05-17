@@ -26,7 +26,7 @@ namespace Core.Client
         private async Task timer()
         {
             // Timer aktualizuje dane co 30sekund
-            if (GetGameTimer() - _lastUpdateTime > 30000)
+            if (GetGameTimer() - _lastUpdateTime > 5000)
             {
                 // Pobieranie ID Gracza
                 var id = GetPlayerServerId(PlayerId());

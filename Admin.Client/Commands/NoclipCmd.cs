@@ -23,6 +23,8 @@ namespace Admin.Client.Commands
                  
                  // Pobiera nasze ID z serwera
                  int playerId = API.PlayerPedId();
+                 var playerPed = API.GetPlayerPed(playerId);
+                 var speed = 1.0;
                  
                  // Pobieranie kodynatow X, Y, Z gracza
                  Vector3 noclipPos = API.GetEntityCoords(playerId, true);
@@ -30,12 +32,11 @@ namespace Admin.Client.Commands
                  // Jeśli pGodMode jest true to uruchamia się GodMode
                  if (_pNoclip)
                  {
-                    API.SetEntityCoordsNoOffset(playerId, noclipPos.X, noclipPos.Y, noclipPos.Z, false, false, false);
+                     if (API.IsControlPressed(0, 21))
+                     {
+                         
+                     }
 
-                    if (API.IsControlPressed(1, 34))
-                    {
-                        
-                    }
                  }
                  
                  // Jeśli pGodMode jest false to GodMode się wyłącza
